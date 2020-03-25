@@ -1,7 +1,7 @@
 {
   "name": "bueberry-pie",
   "version": "1.0.0",
-  "description": "validates json schema faster then you can say blueberry pie",
+  "description": "validates json faster then you can say blueberry pie",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -21,7 +21,8 @@
   ],
   "keywords": [
     "json",
-    "schema"
+    "schema",
+    "validate"
   ],
   "author": "o175",
   "license": "ISC"
