@@ -33,12 +33,13 @@ impl Validator{
     }
     #[wasm_bindgen(js_name = addSchema)]
     pub fn add_schema(&mut self, schema: String, id: Option<String>) -> Result<String, JsValue> {
-        let json_v4_schema : Value = serde_json::from_str(&schema).map_err(|_| JsValue::from_str(&"JSON parsing error"))?;
+        let json_v4_schema : Value = serde_json::from_str(&schema)
+            .map_err(|_| JsValue::from_str(&"JSON parsing error"))?;
         let mut scope = self.scope.write().unwrap();
         let url = match id {
             None => scope.compile_and_return(json_v4_schema, false),
             Some(uid) => scope.compile_and_return_with_id(
-                &(url::Url::parse(&uid)).map_err(|_| JsValue::from_str(&"Wrong Id format!"))?,
+                &(url::Url::parse(&uid)).map_err(|e| JsValue::from_str(&e.to_string()))?,
                 json_v4_schema,
                 false)
         };
@@ -50,7 +51,7 @@ impl Validator{
     pub fn validate_json (&self, json: String, id: String) -> Result<bool, JsValue> {
         let json : Value = serde_json::from_str(&json).map_err(|_| JsValue::from_str(&"JSON parsing error"))?;
         let lock = self.scope.read().unwrap();
-        let url = url::Url::parse(&id).map_err(|_| JsValue::from_str(&"Wrong Id format!"))?;
+        let url = url::Url::parse(&id).map_err(|e| JsValue::from_str(&e.to_string()))?;
         let validation_result = lock.resolve(&url).unwrap().validate(&json);
         match validation_result.is_valid(){
             true => Ok(true),
