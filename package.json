@@ -1,19 +1,18 @@
 {
   "name": "bueberry-pie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "validates json faster then you can say blueberry pie",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
-  "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-      "prepack": "yarn build",
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "build": "wasm-pack build --target nodejs && rm pkg/package.json pkg/.gitignore && tsc index.ts"
+    "prepack": "yarn build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "wasm-pack build --target nodejs && rm pkg/package.json pkg/.gitignore && tsc index.ts"
   },
-    "files": [
+  "files": [
     "index.js",
     "index.d.ts",
     "pkg/blueberry_pie.js",
