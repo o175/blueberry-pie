@@ -1,6 +1,4 @@
 
-#[macro_use]
-extern crate lazy_static;
 mod utils;
 
 extern crate serde_json;
@@ -44,7 +42,7 @@ impl Validator{
                 json_v4_schema,
                 false)
         };
-        let scoped_schema = url.unwrap();
+        let scoped_schema = url.map_err(|e| JsValue::from_str(&e.to_string()))?;
         let url = (*scoped_schema).id.as_ref().unwrap();        
         Ok((*url.as_str()).to_string())
     }
