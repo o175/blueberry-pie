@@ -1,6 +1,6 @@
 {
   "name": "blueberry-pie",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "validates json faster then you can say blueberry pie",
   "main": "index.js",
   "directories": {
