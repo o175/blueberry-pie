@@ -1,5 +1,5 @@
 import {
     Validator
-} from './pkg/bueberry_pie'
+} from './pkg/blueberry_pie'
 
 export default Validator;

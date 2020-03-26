@@ -1,6 +1,6 @@
 {
   "name": "blueberry-pie",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "validates json faster then you can say blueberry pie",
   "main": "index.js",
   "directories": {
@@ -9,15 +9,13 @@
   "types": "index.d.ts",
   "scripts": {
     "prepack": "yarn build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm run build",
     "build": "wasm-pack build --target nodejs && rm pkg/package.json pkg/.gitignore && tsc index.ts"
   },
   "files": [
     "index.js",
     "index.d.ts",
-    "pkg/blueberry_pie.js",
-    "pkg/blueberry_pie_bg.js",
-    "pkg/blueberry_pie_bg.wasm"
+    "pkg/*"
   ],
   "keywords": [
     "json",
