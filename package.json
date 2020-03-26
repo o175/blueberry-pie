@@ -8,7 +8,7 @@
   },
   "main": "index.js",
   "types": "index.d.ts",
-   "scripts": {
+  "scripts": {
       "install": "npm run build",
       "test": "echo \"Error: no test specified\" && exit 1",
       "build": "wasm-pack build --target nodejs && rm pkg/package.json pkg/.gitignore && tsc index.ts"
